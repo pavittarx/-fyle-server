@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node ./dist/app",
+    "start": "node ./dist/server",
     "dev": "nodemon -L",
     "heroku-postbuild": "tsc"
   },

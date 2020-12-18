@@ -1,0 +1,100 @@
+2020-12-18T15:27:42.556119+00:00 app[api]: Deploy 5b896b24 by user pavittarx@gmail.com
+2020-12-18T15:27:42.718461+00:00 heroku[web.1]: State changed from crashed to starting
+2020-12-18T15:27:45.000000+00:00 app[api]: Build succeeded
+2020-12-18T15:27:45.640162+00:00 heroku[web.1]: Starting process with command `npm start`
+2020-12-18T15:27:48.974286+00:00 app[web.1]: 
+2020-12-18T15:27:48.974307+00:00 app[web.1]: > fyle@1.0.0 start /app
+2020-12-18T15:27:48.974308+00:00 app[web.1]: > node ./dist/app
+2020-12-18T15:27:48.974308+00:00 app[web.1]: 
+2020-12-18T15:27:49.115269+00:00 app[web.1]: internal/modules/cjs/loader.js:818
+2020-12-18T15:27:49.115270+00:00 app[web.1]: throw err;
+2020-12-18T15:27:49.115271+00:00 app[web.1]: ^
+2020-12-18T15:27:49.115271+00:00 app[web.1]: 
+2020-12-18T15:27:49.115272+00:00 app[web.1]: Error: Cannot find module '/app/dist/app'
+2020-12-18T15:27:49.115273+00:00 app[web.1]: at Function.Module._resolveFilename (internal/modules/cjs/loader.js:815:15)
+2020-12-18T15:27:49.115273+00:00 app[web.1]: at Function.Module._load (internal/modules/cjs/loader.js:667:27)
+2020-12-18T15:27:49.115274+00:00 app[web.1]: at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)
+2020-12-18T15:27:49.115274+00:00 app[web.1]: at internal/main/run_main_module.js:17:47 {
+2020-12-18T15:27:49.115275+00:00 app[web.1]: code: 'MODULE_NOT_FOUND',
+2020-12-18T15:27:49.115275+00:00 app[web.1]: requireStack: []
+2020-12-18T15:27:49.115275+00:00 app[web.1]: }
+2020-12-18T15:27:49.145597+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2020-12-18T15:27:49.146086+00:00 app[web.1]: npm ERR! errno 1
+2020-12-18T15:27:49.161214+00:00 app[web.1]: npm ERR! fyle@1.0.0 start: `node ./dist/app`
+2020-12-18T15:27:49.161450+00:00 app[web.1]: npm ERR! Exit status 1
+2020-12-18T15:27:49.161769+00:00 app[web.1]: npm ERR!
+2020-12-18T15:27:49.162029+00:00 app[web.1]: npm ERR! Failed at the fyle@1.0.0 start script.
+2020-12-18T15:27:49.162273+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2020-12-18T15:27:49.171096+00:00 app[web.1]: 
+2020-12-18T15:27:49.171538+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2020-12-18T15:27:49.171765+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2020-12-18T15_27_49_163Z-debug.log
+2020-12-18T15:27:49.244710+00:00 heroku[web.1]: Process exited with status 1
+2020-12-18T15:27:49.310888+00:00 heroku[web.1]: State changed from starting to crashed
+2020-12-18T15:28:23.373793+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=fyleserve.herokuapp.com request_id=a2e47a1a-3ac7-4369-a020-234d9e9394f9 fwd="47.31.30.169" dyno= connect= service= status=503 bytes= protocol=https
+2020-12-18T15:28:25.223142+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=fyleserve.herokuapp.com request_id=d1c4c953-c173-4188-9f21-28ca68fe1360 fwd="47.31.44.186" dyno= connect= service= status=503 bytes= protocol=https
+2020-12-18T15:49:01.000000+00:00 app[api]: Build started by user pavittarx@gmail.com
+2020-12-18T15:49:43.251145+00:00 app[api]: Deploy 70000295 by user pavittarx@gmail.com
+2020-12-18T15:49:43.251145+00:00 app[api]: Release v9 created by user pavittarx@gmail.com
+2020-12-18T15:49:44.001640+00:00 heroku[web.1]: State changed from crashed to starting
+2020-12-18T15:49:45.000000+00:00 app[api]: Build succeeded
+2020-12-18T15:49:45.988049+00:00 heroku[web.1]: Starting process with command `npm start`
+2020-12-18T15:49:48.381974+00:00 app[web.1]: 
+2020-12-18T15:49:48.382065+00:00 app[web.1]: > fyle@1.0.0 start /app
+2020-12-18T15:49:48.382066+00:00 app[web.1]: > node ./dist/app
+2020-12-18T15:49:48.382072+00:00 app[web.1]: 
+2020-12-18T15:49:48.441843+00:00 app[web.1]: internal/modules/cjs/loader.js:818
+2020-12-18T15:49:48.441845+00:00 app[web.1]: throw err;
+2020-12-18T15:49:48.441846+00:00 app[web.1]: ^
+2020-12-18T15:49:48.441846+00:00 app[web.1]: 
+2020-12-18T15:49:48.441847+00:00 app[web.1]: Error: Cannot find module '/app/dist/app'
+2020-12-18T15:49:48.441853+00:00 app[web.1]: at Function.Module._resolveFilename (internal/modules/cjs/loader.js:815:15)
+2020-12-18T15:49:48.441853+00:00 app[web.1]: at Function.Module._load (internal/modules/cjs/loader.js:667:27)
+2020-12-18T15:49:48.441859+00:00 app[web.1]: at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)
+2020-12-18T15:49:48.441859+00:00 app[web.1]: at internal/main/run_main_module.js:17:47 {
+2020-12-18T15:49:48.441860+00:00 app[web.1]: code: 'MODULE_NOT_FOUND',
+2020-12-18T15:49:48.441860+00:00 app[web.1]: requireStack: []
+2020-12-18T15:49:48.441860+00:00 app[web.1]: }
+2020-12-18T15:49:48.452053+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2020-12-18T15:49:48.452392+00:00 app[web.1]: npm ERR! errno 1
+2020-12-18T15:49:48.457910+00:00 app[web.1]: npm ERR! fyle@1.0.0 start: `node ./dist/app`
+2020-12-18T15:49:48.458071+00:00 app[web.1]: npm ERR! Exit status 1
+2020-12-18T15:49:48.458246+00:00 app[web.1]: npm ERR!
+2020-12-18T15:49:48.458388+00:00 app[web.1]: npm ERR! Failed at the fyle@1.0.0 start script.
+2020-12-18T15:49:48.458561+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2020-12-18T15:49:48.465219+00:00 app[web.1]: 
+2020-12-18T15:49:48.465425+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2020-12-18T15:49:48.465549+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2020-12-18T15_49_48_459Z-debug.log
+2020-12-18T15:49:48.531455+00:00 heroku[web.1]: Process exited with status 1
+2020-12-18T15:49:48.587111+00:00 heroku[web.1]: State changed from starting to crashed
+2020-12-18T15:49:48.599941+00:00 heroku[web.1]: State changed from crashed to starting
+2020-12-18T15:49:51.861602+00:00 heroku[web.1]: Starting process with command `npm start`
+2020-12-18T15:49:55.325261+00:00 app[web.1]: 
+2020-12-18T15:49:55.333136+00:00 app[web.1]: > fyle@1.0.0 start /app
+2020-12-18T15:49:55.333138+00:00 app[web.1]: > node ./dist/app
+2020-12-18T15:49:55.333143+00:00 app[web.1]: 
+2020-12-18T15:49:55.474400+00:00 app[web.1]: internal/modules/cjs/loader.js:818
+2020-12-18T15:49:55.474409+00:00 app[web.1]: throw err;
+2020-12-18T15:49:55.474410+00:00 app[web.1]: ^
+2020-12-18T15:49:55.474410+00:00 app[web.1]: 
+2020-12-18T15:49:55.474410+00:00 app[web.1]: Error: Cannot find module '/app/dist/app'
+2020-12-18T15:49:55.474422+00:00 app[web.1]: at Function.Module._resolveFilename (internal/modules/cjs/loader.js:815:15)
+2020-12-18T15:49:55.474422+00:00 app[web.1]: at Function.Module._load (internal/modules/cjs/loader.js:667:27)
+2020-12-18T15:49:55.474428+00:00 app[web.1]: at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)
+2020-12-18T15:49:55.474428+00:00 app[web.1]: at internal/main/run_main_module.js:17:47 {
+2020-12-18T15:49:55.474429+00:00 app[web.1]: code: 'MODULE_NOT_FOUND',
+2020-12-18T15:49:55.474430+00:00 app[web.1]: requireStack: []
+2020-12-18T15:49:55.474430+00:00 app[web.1]: }
+2020-12-18T15:49:55.501052+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2020-12-18T15:49:55.501400+00:00 app[web.1]: npm ERR! errno 1
+2020-12-18T15:49:55.509856+00:00 app[web.1]: npm ERR! fyle@1.0.0 start: `node ./dist/app`
+2020-12-18T15:49:55.510086+00:00 app[web.1]: npm ERR! Exit status 1
+2020-12-18T15:49:55.510288+00:00 app[web.1]: npm ERR!
+2020-12-18T15:49:55.510454+00:00 app[web.1]: npm ERR! Failed at the fyle@1.0.0 start script.
+2020-12-18T15:49:55.510635+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2020-12-18T15:49:55.519330+00:00 app[web.1]: 
+2020-12-18T15:49:55.519601+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2020-12-18T15:49:55.519740+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2020-12-18T15_49_55_511Z-debug.log
+2020-12-18T15:49:55.643492+00:00 heroku[web.1]: Process exited with status 1
+2020-12-18T15:49:55.718533+00:00 heroku[web.1]: State changed from starting to crashed
+2020-12-18T15:50:08.575977+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=fyleserve.herokuapp.com request_id=7181824b-70ca-4a5d-a71a-fab2ca5e6326 fwd="47.31.44.186" dyno= connect= service= status=503 bytes= protocol=https
+2020-12-18T15:50:09.190059+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=fyleserve.herokuapp.com request_id=0b4cbdc8-831a-4fa9-b584-e253a96a0a6f fwd="47.31.44.186" dyno= connect= service= status=503 bytes= protocol=https
