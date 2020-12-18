@@ -1,5 +1,5 @@
-import { execQuery } from "../connect";
 import sanitize from "../../shared/sanitize";
+import { execQuery } from "../connect";
 
 /**
  *
@@ -21,7 +21,7 @@ export async function getBanksForAutocompleteQuery(
                   WHERE branch LIKE '%${qParam.toUpperCase()}%' 
                   ORDER BY ifsc 
                   LIMIT ${limit} 
-                  OFFSET ${offset} rs
+                  OFFSET ${offset} 
                   ;`;
 
   const result = await execQuery(query);
@@ -36,12 +36,14 @@ export async function getBanksForQuery(
 ) {
   const qParam = sanitize(q);
 
-  const searchBanksQuery = `SELECT id, name from banks where doc_vectors @@ '${qParam}' = 't'`;
-  const searchBranchesQuery = `SELECT ifsc, bank_id, branch, address, city, district, state from branches WHERE doc_vectors @@ '${qParam}' = 't'`;
+  const searchBanksQuery = `SELECT id, name from banks where doc_vectors @@ to_tsquery('${qParam}')`;
+  const searchBranchesQuery = `SELECT ifsc, bank_id, branch, address, city, district, state from branches WHERE doc_vectors @@ to_tsquery('${qParam}')`;
 
-  const query = `SELECT * from (${searchBranchesQuery}) branches 
-                  FULL OUTER JOIN (${searchBanksQuery}) banks 
+  const query = `SELECT * from (${searchBranchesQuery}) branches
+                  FULL JOIN (${searchBanksQuery}) banks
                   on branches.bank_id = banks.id
+                  AND banks.id = branches.bank_id
+                  ORDER BY ifsc
                   LIMIT ${limit}
                   OFFSET ${offset};`;
 

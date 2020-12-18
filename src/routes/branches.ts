@@ -4,8 +4,8 @@
 
 import express from "express";
 import {
-  getBanksForAutocompleteQuery,
   getBanksForQuery,
+  getBanksForAutocompleteQuery,
 } from "./../pg/functions/branches";
 
 const router = express.Router();
@@ -34,25 +34,44 @@ type Params = {
 router.get("/autocomplete", async (req, res) => {
   const { q, limit, offset }: Params = req.query;
 
-  const result = await getBanksForAutocompleteQuery(
+  if(!q){
+    res.status(400);
+    res.json({
+      error: true,
+      message: 'The query cannot be empty.'
+    });
+    return;
+  }
+
+  const branches = await getBanksForAutocompleteQuery(
     q!,
     limit ? limit : 10,
     offset ? offset : 0
   );
 
-  res.json(result);
+  res.json({ branches });
 });
 
 router.get("/", async (req, res) => {
   const { q, limit, offset }: Params = req.query;
 
-  const result = await getBanksForQuery(
+  if(!q){
+    res.status(400);
+    res.json({
+      error: true,
+      message: 'The query cannot be empty.'
+    });
+
+    return;
+  }
+
+  const branches = await getBanksForQuery(
     q!,
     limit ? limit : 10,
     offset ? offset : 0
   );
 
-  res.json(result);
+  res.json({ branches });
 });
 
 export default router;
