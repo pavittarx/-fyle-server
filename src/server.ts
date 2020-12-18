@@ -19,9 +19,8 @@ app.get("/", (req, res) => {
 
 app.listen(process.env.PORT || 3000, () =>
   console.log(
-    `Server Ready at ${
-      process.env.PORT ? process.env.DEPLOY_URL : "https://localhost:3000"
-    }`
+    `Server Ready at [Development Only]: ${
+      process.env.PORT ? 'https://localhost:'+process.env.PORT : 'https://localhost:3000' }`
   )
 );
 
