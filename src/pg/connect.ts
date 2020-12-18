@@ -1,8 +1,6 @@
-import { RSA_NO_PADDING } from "constants";
+import { Pool } from "pg";
 import dotenv from "dotenv";
 dotenv.config();
-
-import { Pool } from "pg";
 
 const pool = new Pool({
   host: process.env.PG_HOST,
@@ -12,15 +10,22 @@ const pool = new Pool({
   port: process.env.PG_PORT ? parseInt(process.env.PG_PORT) : 5432,
 });
 
+/* Listens to each new client connection being established. */
 pool.on("connect", (client) => {
-  console.log("[pg Pool]: A new client connection has been established");
+  console.log("[pg Pool]: A new client connection has been established.");
 });
 
+/* Handles any idle client errors */
 pool.on("error", (err, client) => {
-  console.error("Unexpected error on idle client", err);
+  console.error("[pg Pool]: Unexpected error on idle client", err);
   process.exit(-1);
 });
 
+
+/**
+ * @param query
+ * It gets a client from the pool, executes the provided query and releases the client. 
+ */
 export const execQuery = async (query: string) => {
   const client = await pool.connect();
   
@@ -34,6 +39,7 @@ export const execQuery = async (query: string) => {
   return res;
 };
 
+/* Clear pool on Exit */
 process.on("exit", () => pool.end());
 
 export default pool;
