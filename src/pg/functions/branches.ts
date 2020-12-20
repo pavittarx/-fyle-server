@@ -11,18 +11,30 @@ import { execQuery } from "../connect";
  */
 
 export async function getBanksForAutocompleteQuery(
-  q: string,
-  limit: number = 10,
+  q: string | undefined,
+  limit: number = 100,
   offset: number = 0
 ) {
-  const qParam = sanitize(q);
-  const query = `SELECT * from branches
+  let query: string;
+  
+  if (!q) {
+    query = `SELECT * from branches
+              FULL OUTER JOIN banks on branches.bank_id = banks.id
+              ORDER BY ifsc
+              ${limit ? "LIMIT " + limit : ""}
+              ${offset ? "OFFSET " + offset : ""};`;
+  } else {
+    const qParam = sanitize(q);
+    query = `SELECT * from branches
                   FULL OUTER JOIN banks on branches.bank_id = banks.id
                   WHERE branch LIKE '%${qParam.toUpperCase()}%' 
                   ORDER BY ifsc 
                   LIMIT ${limit} 
                   OFFSET ${offset} 
                   ;`;
+  }
+
+  console.log(query);
 
   const result = await execQuery(query);
 

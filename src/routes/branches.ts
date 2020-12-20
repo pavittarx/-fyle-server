@@ -34,20 +34,7 @@ type Params = {
 router.get("/autocomplete", async (req, res) => {
   const { q, limit, offset }: Params = req.query;
 
-  if(!q){
-    res.status(400);
-    res.json({
-      error: true,
-      message: 'The query cannot be empty.'
-    });
-    return;
-  }
-
-  const branches = await getBanksForAutocompleteQuery(
-    q!,
-    limit ? limit : 10,
-    offset ? offset : 0
-  );
+  const branches = await getBanksForAutocompleteQuery(q, limit, offset);
 
   res.json({ branches });
 });
@@ -55,21 +42,7 @@ router.get("/autocomplete", async (req, res) => {
 router.get("/", async (req, res) => {
   const { q, limit, offset }: Params = req.query;
 
-  if(!q){
-    res.status(400);
-    res.json({
-      error: true,
-      message: 'The query cannot be empty.'
-    });
-
-    return;
-  }
-
-  const branches = await getBanksForQuery(
-    q!,
-    limit ? limit : 10,
-    offset ? offset : 0
-  );
+  const branches = await getBanksForQuery(q!, limit, offset);
 
   res.json({ branches });
 });

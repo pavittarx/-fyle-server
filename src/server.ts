@@ -1,11 +1,14 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 
 import BanksRouter from "./routes/banks";
 import BranchesRouter from "./routes/branches";
 
 const app = express();
+
 dotenv.config();
+app.use(cors());
 
 app.use('/api/branches', BranchesRouter);
 app.use('/api/banks', BanksRouter);
