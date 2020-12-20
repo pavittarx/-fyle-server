@@ -1,4 +1,6 @@
 function sanitize(str: string) {
+  if (!str || !str.length) return;
+
   const map: { [key: string]: string } = {
     "&": "&amp;",
     "<": "&lt;",
