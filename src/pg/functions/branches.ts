@@ -18,13 +18,14 @@ export async function getBanksForAutocompleteQuery(
   let query: string;
 
   if (!q) {
-    query = `SELECT * from branches
+    query = `SELECT ifsc, branch, address, city, district, state, id, name from branches
               FULL OUTER JOIN banks on branches.bank_id = banks.id
+              ORDER BY ifsc
               LIMIT ${limit ? limit : 100}
               OFFSET ${offset ? offset : 0};`;
   } else {
     const qParam = sanitize(q);
-    query = `SELECT * from branches
+    query = `SELECT ifsc, branch, address, city, district, state, id, name from branches
                   FULL OUTER JOIN banks on branches.bank_id = banks.id
                   WHERE branch LIKE '%${qParam!.toUpperCase()}%' 
                   ORDER BY ifsc 
@@ -45,21 +46,22 @@ export async function getBanksForQuery(
   let query: string;
 
   if (!q) {
-    query = `SELECT * from branches
+    query = `SELECT ifsc, branch, address, city, district, state, id, name from branches
               FULL OUTER JOIN banks on branches.bank_id = banks.id
+              ORDER BY ifsc
               LIMIT ${limit ? limit : 100}
               OFFSET ${offset ? offset : 0};`;
   } else {
     const qParam = sanitize(q);
 
-    query = `SELECT ifsc, bank_id, branch, address, city, district, state, id, name from branches, banks 
+    query = `SELECT ifsc, branch, address, city, district, state, id, name from branches, banks 
                           WHERE (branches.doc_vectors @@ to_tsquery('${qParam}') 
                                   OR  banks.doc_vectors @@ to_tsquery('${qParam}'))
                           AND banks.id = branches.bank_id
+                          ORDER BY ifsc
                           LIMIT ${limit}
                           OFFSET ${offset};
                 `;
-
   }
 
   const result = await execQuery(query);
